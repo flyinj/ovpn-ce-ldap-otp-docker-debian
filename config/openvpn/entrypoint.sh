@@ -27,5 +27,13 @@ exec /usr/local/sbin/openvpn --config /etc/openvpn/server.conf
 
 
 #Variables to extract from Dockerfile / Config CONFIGFILES
-#${OVPN_NETWORK}
-#${}
+#OVPN_NETWORK : CIDR format : 10.10.50.0/24 for example -> May need to change that with whatmask as OVPN_NETWORK also used in server.conf with another format
+#OVPN_PROTOCOL? --maybe
+#OVPN_PORT
+#LDAP_URI
+#LDAP_BASE_DN
+#LDAP_BIND_USER_DN
+#LDAP_BIND_USER_PASS
+#LDAP_FILTER
+#OVPN_DNS_SERVERS?
+#OVPN_DNS_SEARCH_DOMAIN?
