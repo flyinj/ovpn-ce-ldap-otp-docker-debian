@@ -17,14 +17,12 @@ fi
 # NAT mode by default
 export this_natdevice=`route | grep '^default' | grep -o '[^ ]*$'`
 
-iptables -t nat -C POSTROUTING -s "${OVPN_NETWORK}" -o $this_natdevice -j MASQUERADE || \
-iptables -t nat -A POSTROUTING -s "${OVPN_NETWORK}" -o $this_natdevice -j MASQUERADE
+iptables -t nat -A POSTROUTING -s ${OVPN_NETWORK} -o $this_natdevice -j MASQUERADE
 
 ######################
 
 # Start OpenVPN Server
 exec /usr/local/sbin/openvpn --config /etc/openvpn/server.conf
-
 
 #Variables to extract from Dockerfile / Config CONFIGFILES
 #OVPN_NETWORK : CIDR format : 10.10.50.0/24 for example -> May need to change that with whatmask as OVPN_NETWORK also used in server.conf with another format
