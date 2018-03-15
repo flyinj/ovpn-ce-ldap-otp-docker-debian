@@ -17,6 +17,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       # for google authenticator
       autoconf \
       libtool \
+      #for network configuration
+#      whatmask \
+      iptables \
+      net-tools \
       # for sanity
       vim \
       && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -48,11 +52,12 @@ RUN cd /usr/local/src/ \
 
 COPY config/openvpn/pam.conf /etc/pam.d/openvpn
 COPY config/openvpn/ldap.conf config/openvpn/server.conf /etc/openvpn/
+COPY config/openvpn/crypto/* etc/openvpn/pki/
 COPY config/openvpn/entrypoint.sh /usr/local/bin/openvpn-entrypoint
+RUN chmod a+x /usr/local/bin/*
 
 EXPOSE 1194/udp
 
-VOLUME /etc/openvpn
+#VOLUME /etc/openvpn
 
 CMD ["/usr/local/bin/openvpn-entrypoint"]
-
