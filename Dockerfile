@@ -54,6 +54,7 @@ COPY config/openvpn/pam.conf /etc/pam.d/openvpn
 COPY config/openvpn/ldap.conf config/openvpn/server.conf /etc/openvpn/
 COPY config/openvpn/crypto/* etc/openvpn/pki/
 COPY config/openvpn/entrypoint.sh /usr/local/bin/openvpn-entrypoint
+COPY config/openvpn/add-otp-user /usr/local/bin/add-otp-user
 RUN chmod a+x /usr/local/bin/*
 
 EXPOSE 1194/udp
