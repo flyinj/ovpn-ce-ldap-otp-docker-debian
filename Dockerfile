@@ -13,8 +13,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       liblz4-dev \
       libpam0g-dev \
       libnss-ldapd \
-      libpam-ldapd \
-      libpam-ladp \
+      #libpam-ldapd \
+      libpam-ldadp \
       # for google authenticator
       autoconf \
       libtool \
