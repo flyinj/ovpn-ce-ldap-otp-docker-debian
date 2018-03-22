@@ -20,7 +20,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       #for network configuration
 #      whatmask \
       iptables \
-      net-tools \
+#      net-tools \
+      sipcalc \
       # for sanity
       vim \
       && apt-get clean && rm -rf /var/lib/apt/lists/*
