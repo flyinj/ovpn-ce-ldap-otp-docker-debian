@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Create ovpn log and otp directories
+# Create openvpn log and otp directories
 mkdir -p /var/log/openvpn/
 mkdir -p /etc/openvpn/otp/
+mkdir -p /lib/security/ && ln -s /usr/local/lib/security/pam_google_authenticator.so /lib/security/pam_google_authenticator.so
 
 #######################
 ####SETUP NETWORKING###
