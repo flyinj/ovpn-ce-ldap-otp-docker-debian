@@ -19,7 +19,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       libtool \
       #for network configuration
       iptables \
-#      net-tools \
+      net-tools \
       sipcalc \
       # for sanity
       vim \
