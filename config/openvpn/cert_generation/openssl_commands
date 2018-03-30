@@ -1,0 +1,12 @@
+#Create ECC private key
+openssl ecparam -out ovpn.development.helix.com.key -name secp384r1 -genkey
+
+#Create CSR for private key and adds extensions as specified in csr_configuration
+openssl req -new -sha256 -key ovpn.environment.company.com.key -out ovpn.environment.company.com.csr -config csr_configuration
+
+
+#CA signing - CSR
+openssl x509 -req -in ovpn.environment.company.com.csr -CA CA/cacert.pem -CAkey CA/cakey.pem -CAcreateserial -out ovpn.environment.company.com.crt -extfile openssl-ext.cnf -days 365
+
+#Create ta.key for tls-auth
+Openvpn --genkey --secret ta.key
