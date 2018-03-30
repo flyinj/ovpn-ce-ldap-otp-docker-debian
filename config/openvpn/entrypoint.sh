@@ -16,7 +16,7 @@ fi
 
 #no routes are set: redirect all traffic from the client over the tunnel.
 ovpn_net_addr=`sipcalc ${OVPN_NETWORK} | grep 'Network address' | awk '{ print $4 }'`
-ovpn_net_mask=`sipcalc ${OVPN_NETWORK} | grep 'Network Mask' | awk '{ print $4 }'`
+ovpn_net_mask=`sipcalc ${OVPN_NETWORK} | grep 'network mask' | awk '{ print $4 }'`
 ovpn_net="${ovpn_net_addr} ${ovpn_net_mask}" #not used - should be used to setup  address ovp server conf
 
 # NAT mode by default
